@@ -4,12 +4,12 @@ The student website deploys to Vercel. A single Python backend hosts the actual 
 
 ## Deployment status
 
-Source preparation and local checks are complete. Vercel and backend account connections are required before publication. This folder is not evidence of a completed cloud deployment and does not yet have a permanent production URL.
+Student portal: https://cn-adaptive-sliding-window.vercel.app/ . The website runs on Vercel and forwards to https://cn-campus-results-backend.onrender.com . Both services were deployed and the live student lookup verified on 18 October 2026. The Mac can be off. Free-plan cold starts and other limits still apply.
 
 ## Deployment shortcuts
 
 1. [Deploy the Python backend on Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fomprakash-2006%2Fcn-adaptive-sliding-window). The blueprint explicitly selects the free plan. Wait for a successful deployment and copy its HTTPS address.
-2. [Deploy the student website on Vercel](https://vercel.com/clone?repository-url=https%3A%2F%2Fgithub.com%2Fomprakash-2006%2Fcn-adaptive-sliding-window&env=BACKEND_URL&envDescription=Paste%20the%20HTTPS%20address%20of%20your%20deployed%20Render%20backend). Enter the backend address as `BACKEND_URL`.
+2. [Import the existing repository on Vercel](https://vercel.com/new): select GitHub, find `cn-adaptive-sliding-window`, and click its **Import** button. Select the repository root (`./`) and **Other** preset, then enter the backend address as `BACKEND_URL`. Do not use the clone/create-repository flow for a repository already owned by this account.
 
 These links open account setup/deployment flows. They are not the running student website. The final student link is the actual `.vercel.app` URL returned after Vercel completes deployment.
 
@@ -34,7 +34,7 @@ Official references:
 7. Choose the **Free** service plan. Do not select a paid plan or add paid resources without approval.
 8. After a successful deployment, copy the exact backend HTTPS URL shown by Render.
 
-The hosted entry point binds HTTP to `0.0.0.0:$PORT`; the TCP listener remains on loopback. Testing, traffic injection, the student directory and publication mutation routes are unavailable on this hosted entry point.
+The hosted entry point binds HTTP to `0.0.0.0:$PORT`; the TCP listener remains on loopback. The original local correction lab, traffic endpoints, student directory and publication mutation routes are unavailable on this hosted entry point. A separate password-protected cloud queue demonstration is available as described below.
 
 ## Deploy the student website on Vercel
 
@@ -44,7 +44,7 @@ The hosted entry point binds HTTP to `0.0.0.0:$PORT`; the TCP listener remains o
 4. Deploy and wait for Vercel to report success.
 5. Open the actual returned Vercel URL and verify the form, query/poll flow and marksheet.
 
-The Vercel source excludes the backend folder from its deployment bundle. Student pages and assets pass through an allowlisted proxy. The proxy blocks local administration paths and never forwards incoming administration tokens.
+The Vercel source excludes the backend folder from its deployment bundle. Student pages and assets pass through an allowlisted proxy. The proxy blocks local administration paths and never forwards incoming administration tokens. Only the cloud-demo session cookie and same-origin JSON testing actions have dedicated forwarding rules.
 
 ## Free hosting limits
 
@@ -65,3 +65,21 @@ Valid sample registrations range from **24BAD001 through 24BAD130**. Dates recei
 Run proxy checks using `npm test`. The Node runtime is 22.x on Vercel. The backend uses Python's standard library.
 
 Local hosting checks use isolated ports and a temporary publication database. This avoids modifying the running local demo. The original local correction lab remains separate at http://127.0.0.1:8082/demo when launched with testing enabled.
+
+## Protected cloud testing page
+
+Testing URL: https://cn-adaptive-sliding-window.vercel.app/demo . It controls the **same cloud TCP controller** that serves the Vercel student portal. The original localhost lab is a separate instance.
+
+Before using it, open the Render backend **Environment** settings and set `CN_DEMO_PASSWORD` to a private password of at least 12 characters. Save and deploy the change. Choose and enter that password yourself; never commit it or send it in chat. No Vercel secret is needed. If the password is missing, authentication and controls fail closed. Changing it or restarting the backend invalidates existing two-hour signed sessions.
+
+1. Open `/demo` and sign in using the presenter password.
+2. Click **Run queue demo**. It temporarily selects W=3 and a 1.2-second processing delay, starts 25 background TCP students and then tracks 24BAD130.
+3. Show the active slots, FIFO waiting count, tracked position and CRC/version-verified delivery. The page reports actual completed/failed requests.
+4. Normal W=10 and 0.2-second processing returns when the run finishes. A 90-second timer also restores normal mode after manually enabling slow mode.
+5. **Slow mode**, **25-student burst**, and **Restore normal mode** are also available separately. Only one burst can run at a time; each burst has exactly 26 TCP clients including the tracked student.
+
+Slow mode affects the shared sample backend briefly. Run a presentation demonstration when other viewers can tolerate that wait. This page does not publish corrections or modify marks. Public student pages have no testing buttons.
+
+Authentication uses a Secure, HttpOnly, SameSite=Strict cookie with HMAC validation and a two-hour expiry. Control actions require JSON POST requests and the configured student website origin. Login attempts and burst size are bounded. `CN_DEMO_ORIGIN` defaults to the current Vercel origin; update it in Render if the student hostname changes.
+
+Local correction testing remains at http://127.0.0.1:8082/demo and requires the local server. To run the new cloud-demo integration checks on disposable local ports/database, use `python3 tests/cloud_demo_test.py -v`.

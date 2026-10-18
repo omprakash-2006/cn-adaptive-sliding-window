@@ -21,6 +21,7 @@ def main():
 
     import web_portal
     from public_access import STUDENT_PATHS
+    from cloud_demo import CloudDemo
     web_portal.DEMO_ENABLED = False
     web_portal.TCP_SERVER_PORT = args.tcp_port
     web_portal.WEB_PORT = args.port
@@ -40,8 +41,12 @@ def main():
     else:
         raise RuntimeError('The TCP admission server did not become ready.')
 
+    demo = CloudDemo(web_portal.server, web_portal.client, args.tcp_port)
+
     class StudentHandler(web_portal.PortalHTTPHandler):
         def do_GET(self):
+            if demo.handle(self):
+                return
             route = urllib.parse.urlsplit(self.path).path
             if route == '/healthz':
                 healthy = worker.is_alive()
@@ -57,6 +62,8 @@ def main():
             super().do_GET()
 
         def do_POST(self):
+            if demo.handle(self):
+                return
             self.send_error(405, 'Student portal accepts GET requests only')
 
     web_portal.ThreadingHTTPServer.request_queue_size = 256
