@@ -1,0 +1,1822 @@
+{
+  "24BAD001": {
+    "roll_number": "24BAD001",
+    "name": "Sample Student 001",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 67,
+      "Operating Systems": 66,
+      "Database Systems": 75,
+      "Software Engineering": 75
+    },
+    "gpa": 8.43,
+    "status": "PASS"
+  },
+  "24BAD002": {
+    "roll_number": "24BAD002",
+    "name": "Sample Student 002",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 74,
+      "Operating Systems": 77,
+      "Database Systems": 88,
+      "Software Engineering": 92
+    },
+    "gpa": 9.14,
+    "status": "PASS"
+  },
+  "24BAD003": {
+    "roll_number": "24BAD003",
+    "name": "Sample Student 003",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 81,
+      "Operating Systems": 88,
+      "Database Systems": 64,
+      "Software Engineering": 68
+    },
+    "gpa": 8.64,
+    "status": "PASS"
+  },
+  "24BAD004": {
+    "roll_number": "24BAD004",
+    "name": "Sample Student 004",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 88,
+      "Operating Systems": 55,
+      "Database Systems": 77,
+      "Software Engineering": 85
+    },
+    "gpa": 8.93,
+    "status": "PASS"
+  },
+  "24BAD005": {
+    "roll_number": "24BAD005",
+    "name": "Sample Student 005",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 95,
+      "Operating Systems": 66,
+      "Database Systems": 90,
+      "Software Engineering": 61
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD006": {
+    "roll_number": "24BAD006",
+    "name": "Sample Student 006",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 63,
+      "Operating Systems": 77,
+      "Database Systems": 66,
+      "Software Engineering": 78
+    },
+    "gpa": 8.21,
+    "status": "PASS"
+  },
+  "24BAD007": {
+    "roll_number": "24BAD007",
+    "name": "Sample Student 007",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 70,
+      "Operating Systems": 88,
+      "Database Systems": 79,
+      "Software Engineering": 95
+    },
+    "gpa": 9.21,
+    "status": "PASS"
+  },
+  "24BAD008": {
+    "roll_number": "24BAD008",
+    "name": "Sample Student 008",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 77,
+      "Operating Systems": 55,
+      "Database Systems": 92,
+      "Software Engineering": 71
+    },
+    "gpa": 8.43,
+    "status": "PASS"
+  },
+  "24BAD009": {
+    "roll_number": "24BAD009",
+    "name": "Sample Student 009",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 84,
+      "Operating Systems": 66,
+      "Database Systems": 68,
+      "Software Engineering": 88
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD010": {
+    "roll_number": "24BAD010",
+    "name": "Sample Student 010",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 91,
+      "Operating Systems": 77,
+      "Database Systems": 81,
+      "Software Engineering": 64
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD011": {
+    "roll_number": "24BAD011",
+    "name": "Sample Student 011",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 98,
+      "Operating Systems": 88,
+      "Database Systems": 94,
+      "Software Engineering": 81
+    },
+    "gpa": 9.79,
+    "status": "PASS"
+  },
+  "24BAD012": {
+    "roll_number": "24BAD012",
+    "name": "Sample Student 012",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 66,
+      "Operating Systems": 55,
+      "Database Systems": 70,
+      "Software Engineering": 98
+    },
+    "gpa": 8.14,
+    "status": "PASS"
+  },
+  "24BAD013": {
+    "roll_number": "24BAD013",
+    "name": "Sample Student 013",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 73,
+      "Operating Systems": 66,
+      "Database Systems": 83,
+      "Software Engineering": 74
+    },
+    "gpa": 8.21,
+    "status": "PASS"
+  },
+  "24BAD014": {
+    "roll_number": "24BAD014",
+    "name": "Sample Student 014",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 80,
+      "Operating Systems": 77,
+      "Database Systems": 96,
+      "Software Engineering": 91
+    },
+    "gpa": 9.43,
+    "status": "PASS"
+  },
+  "24BAD015": {
+    "roll_number": "24BAD015",
+    "name": "Sample Student 015",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 87,
+      "Operating Systems": 88,
+      "Database Systems": 72,
+      "Software Engineering": 67
+    },
+    "gpa": 9.14,
+    "status": "PASS"
+  },
+  "24BAD016": {
+    "roll_number": "24BAD016",
+    "name": "Sample Student 016",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 94,
+      "Operating Systems": 55,
+      "Database Systems": 85,
+      "Software Engineering": 84
+    },
+    "gpa": 8.93,
+    "status": "PASS"
+  },
+  "24BAD017": {
+    "roll_number": "24BAD017",
+    "name": "Sample Student 017",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 62,
+      "Operating Systems": 66,
+      "Database Systems": 98,
+      "Software Engineering": 60
+    },
+    "gpa": 7.93,
+    "status": "PASS"
+  },
+  "24BAD018": {
+    "roll_number": "24BAD018",
+    "name": "Sample Student 018",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 69,
+      "Operating Systems": 77,
+      "Database Systems": 74,
+      "Software Engineering": 77
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD019": {
+    "roll_number": "24BAD019",
+    "name": "Sample Student 019",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 76,
+      "Operating Systems": 88,
+      "Database Systems": 87,
+      "Software Engineering": 94
+    },
+    "gpa": 9.71,
+    "status": "PASS"
+  },
+  "24BAD020": {
+    "roll_number": "24BAD020",
+    "name": "Sample Student 020",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 83,
+      "Operating Systems": 55,
+      "Database Systems": 63,
+      "Software Engineering": 70
+    },
+    "gpa": 7.79,
+    "status": "PASS"
+  },
+  "24BAD021": {
+    "roll_number": "24BAD021",
+    "name": "Sample Student 021",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 90,
+      "Operating Systems": 66,
+      "Database Systems": 76,
+      "Software Engineering": 87
+    },
+    "gpa": 9.21,
+    "status": "PASS"
+  },
+  "24BAD022": {
+    "roll_number": "24BAD022",
+    "name": "Sample Student 022",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 97,
+      "Operating Systems": 77,
+      "Database Systems": 89,
+      "Software Engineering": 63
+    },
+    "gpa": 9.07,
+    "status": "PASS"
+  },
+  "24BAD023": {
+    "roll_number": "24BAD023",
+    "name": "Sample Student 023",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 65,
+      "Operating Systems": 88,
+      "Database Systems": 65,
+      "Software Engineering": 80
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD024": {
+    "roll_number": "24BAD024",
+    "name": "Sample Student 024",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 72,
+      "Operating Systems": 55,
+      "Database Systems": 78,
+      "Software Engineering": 97
+    },
+    "gpa": 8.36,
+    "status": "PASS"
+  },
+  "24BAD025": {
+    "roll_number": "24BAD025",
+    "name": "Sample Student 025",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 79,
+      "Operating Systems": 66,
+      "Database Systems": 91,
+      "Software Engineering": 73
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD026": {
+    "roll_number": "24BAD026",
+    "name": "Sample Student 026",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 86,
+      "Operating Systems": 77,
+      "Database Systems": 67,
+      "Software Engineering": 90
+    },
+    "gpa": 9.29,
+    "status": "PASS"
+  },
+  "24BAD027": {
+    "roll_number": "24BAD027",
+    "name": "Sample Student 027",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 93,
+      "Operating Systems": 88,
+      "Database Systems": 80,
+      "Software Engineering": 66
+    },
+    "gpa": 9.36,
+    "status": "PASS"
+  },
+  "24BAD028": {
+    "roll_number": "24BAD028",
+    "name": "Sample Student 028",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 61,
+      "Operating Systems": 55,
+      "Database Systems": 93,
+      "Software Engineering": 83
+    },
+    "gpa": 8.07,
+    "status": "PASS"
+  },
+  "24BAD029": {
+    "roll_number": "24BAD029",
+    "name": "Sample Student 029",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 68,
+      "Operating Systems": 66,
+      "Database Systems": 69,
+      "Software Engineering": 59
+    },
+    "gpa": 7.79,
+    "status": "PASS"
+  },
+  "24BAD030": {
+    "roll_number": "24BAD030",
+    "name": "Sample Student 030",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 75,
+      "Operating Systems": 77,
+      "Database Systems": 82,
+      "Software Engineering": 76
+    },
+    "gpa": 9.0,
+    "status": "PASS"
+  },
+  "24BAD031": {
+    "roll_number": "24BAD031",
+    "name": "Sample Student 031",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 82,
+      "Operating Systems": 88,
+      "Database Systems": 95,
+      "Software Engineering": 93
+    },
+    "gpa": 9.71,
+    "status": "PASS"
+  },
+  "24BAD032": {
+    "roll_number": "24BAD032",
+    "name": "Sample Student 032",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 89,
+      "Operating Systems": 55,
+      "Database Systems": 71,
+      "Software Engineering": 69
+    },
+    "gpa": 8.29,
+    "status": "PASS"
+  },
+  "24BAD033": {
+    "roll_number": "24BAD033",
+    "name": "Sample Student 033",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 96,
+      "Operating Systems": 66,
+      "Database Systems": 84,
+      "Software Engineering": 86
+    },
+    "gpa": 9.21,
+    "status": "PASS"
+  },
+  "24BAD034": {
+    "roll_number": "24BAD034",
+    "name": "Sample Student 034",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 64,
+      "Operating Systems": 77,
+      "Database Systems": 97,
+      "Software Engineering": 62
+    },
+    "gpa": 8.21,
+    "status": "PASS"
+  },
+  "24BAD035": {
+    "roll_number": "24BAD035",
+    "name": "Sample Student 035",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 71,
+      "Operating Systems": 88,
+      "Database Systems": 73,
+      "Software Engineering": 79
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD036": {
+    "roll_number": "24BAD036",
+    "name": "Sample Student 036",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 78,
+      "Operating Systems": 55,
+      "Database Systems": 86,
+      "Software Engineering": 96
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD037": {
+    "roll_number": "24BAD037",
+    "name": "Sample Student 037",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 85,
+      "Operating Systems": 66,
+      "Database Systems": 62,
+      "Software Engineering": 72
+    },
+    "gpa": 8.36,
+    "status": "PASS"
+  },
+  "24BAD038": {
+    "roll_number": "24BAD038",
+    "name": "Sample Student 038",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 92,
+      "Operating Systems": 77,
+      "Database Systems": 75,
+      "Software Engineering": 89
+    },
+    "gpa": 9.5,
+    "status": "PASS"
+  },
+  "24BAD039": {
+    "roll_number": "24BAD039",
+    "name": "Sample Student 039",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 60,
+      "Operating Systems": 88,
+      "Database Systems": 88,
+      "Software Engineering": 65
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD040": {
+    "roll_number": "24BAD040",
+    "name": "Sample Student 040",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 67,
+      "Operating Systems": 55,
+      "Database Systems": 64,
+      "Software Engineering": 82
+    },
+    "gpa": 7.71,
+    "status": "PASS"
+  },
+  "24BAD041": {
+    "roll_number": "24BAD041",
+    "name": "Sample Student 041",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 74,
+      "Operating Systems": 66,
+      "Database Systems": 77,
+      "Software Engineering": 58
+    },
+    "gpa": 8.0,
+    "status": "PASS"
+  },
+  "24BAD042": {
+    "roll_number": "24BAD042",
+    "name": "Sample Student 042",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 81,
+      "Operating Systems": 77,
+      "Database Systems": 90,
+      "Software Engineering": 75
+    },
+    "gpa": 9.21,
+    "status": "PASS"
+  },
+  "24BAD043": {
+    "roll_number": "24BAD043",
+    "name": "Sample Student 043",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 88,
+      "Operating Systems": 88,
+      "Database Systems": 66,
+      "Software Engineering": 92
+    },
+    "gpa": 9.57,
+    "status": "PASS"
+  },
+  "24BAD044": {
+    "roll_number": "24BAD044",
+    "name": "Sample Student 044",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 95,
+      "Operating Systems": 55,
+      "Database Systems": 79,
+      "Software Engineering": 68
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD045": {
+    "roll_number": "24BAD045",
+    "name": "Sample Student 045",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 63,
+      "Operating Systems": 66,
+      "Database Systems": 92,
+      "Software Engineering": 85
+    },
+    "gpa": 8.57,
+    "status": "PASS"
+  },
+  "24BAD046": {
+    "roll_number": "24BAD046",
+    "name": "Sample Student 046",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 70,
+      "Operating Systems": 77,
+      "Database Systems": 68,
+      "Software Engineering": 61
+    },
+    "gpa": 8.07,
+    "status": "PASS"
+  },
+  "24BAD047": {
+    "roll_number": "24BAD047",
+    "name": "Sample Student 047",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 77,
+      "Operating Systems": 88,
+      "Database Systems": 81,
+      "Software Engineering": 78
+    },
+    "gpa": 9.29,
+    "status": "PASS"
+  },
+  "24BAD048": {
+    "roll_number": "24BAD048",
+    "name": "Sample Student 048",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 84,
+      "Operating Systems": 55,
+      "Database Systems": 94,
+      "Software Engineering": 95
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD049": {
+    "roll_number": "24BAD049",
+    "name": "Sample Student 049",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 91,
+      "Operating Systems": 66,
+      "Database Systems": 70,
+      "Software Engineering": 71
+    },
+    "gpa": 8.57,
+    "status": "PASS"
+  },
+  "24BAD050": {
+    "roll_number": "24BAD050",
+    "name": "Sample Student 050",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 98,
+      "Operating Systems": 77,
+      "Database Systems": 83,
+      "Software Engineering": 88
+    },
+    "gpa": 9.5,
+    "status": "PASS"
+  },
+  "24BAD051": {
+    "roll_number": "24BAD051",
+    "name": "Sample Student 051",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 66,
+      "Operating Systems": 88,
+      "Database Systems": 96,
+      "Software Engineering": 64
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD052": {
+    "roll_number": "24BAD052",
+    "name": "Sample Student 052",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 73,
+      "Operating Systems": 55,
+      "Database Systems": 72,
+      "Software Engineering": 81
+    },
+    "gpa": 7.93,
+    "status": "PASS"
+  },
+  "24BAD053": {
+    "roll_number": "24BAD053",
+    "name": "Sample Student 053",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 80,
+      "Operating Systems": 66,
+      "Database Systems": 85,
+      "Software Engineering": 98
+    },
+    "gpa": 9.14,
+    "status": "PASS"
+  },
+  "24BAD054": {
+    "roll_number": "24BAD054",
+    "name": "Sample Student 054",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 87,
+      "Operating Systems": 77,
+      "Database Systems": 98,
+      "Software Engineering": 74
+    },
+    "gpa": 9.29,
+    "status": "PASS"
+  },
+  "24BAD055": {
+    "roll_number": "24BAD055",
+    "name": "Sample Student 055",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 94,
+      "Operating Systems": 88,
+      "Database Systems": 74,
+      "Software Engineering": 91
+    },
+    "gpa": 9.57,
+    "status": "PASS"
+  },
+  "24BAD056": {
+    "roll_number": "24BAD056",
+    "name": "Sample Student 056",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 62,
+      "Operating Systems": 55,
+      "Database Systems": 87,
+      "Software Engineering": 67
+    },
+    "gpa": 7.86,
+    "status": "PASS"
+  },
+  "24BAD057": {
+    "roll_number": "24BAD057",
+    "name": "Sample Student 057",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 69,
+      "Operating Systems": 66,
+      "Database Systems": 63,
+      "Software Engineering": 84
+    },
+    "gpa": 8.0,
+    "status": "PASS"
+  },
+  "24BAD058": {
+    "roll_number": "24BAD058",
+    "name": "Sample Student 058",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 76,
+      "Operating Systems": 77,
+      "Database Systems": 76,
+      "Software Engineering": 60
+    },
+    "gpa": 8.57,
+    "status": "PASS"
+  },
+  "24BAD059": {
+    "roll_number": "24BAD059",
+    "name": "Sample Student 059",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 83,
+      "Operating Systems": 88,
+      "Database Systems": 89,
+      "Software Engineering": 77
+    },
+    "gpa": 9.5,
+    "status": "PASS"
+  },
+  "24BAD060": {
+    "roll_number": "24BAD060",
+    "name": "Sample Student 060",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 90,
+      "Operating Systems": 55,
+      "Database Systems": 65,
+      "Software Engineering": 94
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD061": {
+    "roll_number": "24BAD061",
+    "name": "Sample Student 061",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 97,
+      "Operating Systems": 66,
+      "Database Systems": 78,
+      "Software Engineering": 70
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD062": {
+    "roll_number": "24BAD062",
+    "name": "Sample Student 062",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 65,
+      "Operating Systems": 77,
+      "Database Systems": 91,
+      "Software Engineering": 87
+    },
+    "gpa": 9.14,
+    "status": "PASS"
+  },
+  "24BAD063": {
+    "roll_number": "24BAD063",
+    "name": "Sample Student 063",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 72,
+      "Operating Systems": 88,
+      "Database Systems": 67,
+      "Software Engineering": 63
+    },
+    "gpa": 8.36,
+    "status": "PASS"
+  },
+  "24BAD064": {
+    "roll_number": "24BAD064",
+    "name": "Sample Student 064",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 79,
+      "Operating Systems": 55,
+      "Database Systems": 80,
+      "Software Engineering": 80
+    },
+    "gpa": 8.43,
+    "status": "PASS"
+  },
+  "24BAD065": {
+    "roll_number": "24BAD065",
+    "name": "Sample Student 065",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 86,
+      "Operating Systems": 66,
+      "Database Systems": 93,
+      "Software Engineering": 97
+    },
+    "gpa": 9.43,
+    "status": "PASS"
+  },
+  "24BAD066": {
+    "roll_number": "24BAD066",
+    "name": "Sample Student 066",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 93,
+      "Operating Systems": 77,
+      "Database Systems": 69,
+      "Software Engineering": 73
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD067": {
+    "roll_number": "24BAD067",
+    "name": "Sample Student 067",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 61,
+      "Operating Systems": 88,
+      "Database Systems": 82,
+      "Software Engineering": 90
+    },
+    "gpa": 8.93,
+    "status": "PASS"
+  },
+  "24BAD068": {
+    "roll_number": "24BAD068",
+    "name": "Sample Student 068",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 68,
+      "Operating Systems": 55,
+      "Database Systems": 95,
+      "Software Engineering": 66
+    },
+    "gpa": 8.14,
+    "status": "PASS"
+  },
+  "24BAD069": {
+    "roll_number": "24BAD069",
+    "name": "Sample Student 069",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 75,
+      "Operating Systems": 66,
+      "Database Systems": 71,
+      "Software Engineering": 83
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD070": {
+    "roll_number": "24BAD070",
+    "name": "Sample Student 070",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 82,
+      "Operating Systems": 77,
+      "Database Systems": 84,
+      "Software Engineering": 59
+    },
+    "gpa": 8.57,
+    "status": "PASS"
+  },
+  "24BAD071": {
+    "roll_number": "24BAD071",
+    "name": "Sample Student 071",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 89,
+      "Operating Systems": 88,
+      "Database Systems": 97,
+      "Software Engineering": 76
+    },
+    "gpa": 9.79,
+    "status": "PASS"
+  },
+  "24BAD072": {
+    "roll_number": "24BAD072",
+    "name": "Sample Student 072",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 96,
+      "Operating Systems": 55,
+      "Database Systems": 73,
+      "Software Engineering": 93
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD073": {
+    "roll_number": "24BAD073",
+    "name": "Sample Student 073",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 64,
+      "Operating Systems": 66,
+      "Database Systems": 86,
+      "Software Engineering": 69
+    },
+    "gpa": 8.14,
+    "status": "PASS"
+  },
+  "24BAD074": {
+    "roll_number": "24BAD074",
+    "name": "Sample Student 074",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 71,
+      "Operating Systems": 77,
+      "Database Systems": 62,
+      "Software Engineering": 86
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD075": {
+    "roll_number": "24BAD075",
+    "name": "Sample Student 075",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 78,
+      "Operating Systems": 88,
+      "Database Systems": 75,
+      "Software Engineering": 62
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD076": {
+    "roll_number": "24BAD076",
+    "name": "Sample Student 076",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 85,
+      "Operating Systems": 55,
+      "Database Systems": 88,
+      "Software Engineering": 79
+    },
+    "gpa": 8.93,
+    "status": "PASS"
+  },
+  "24BAD077": {
+    "roll_number": "24BAD077",
+    "name": "Sample Student 077",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 92,
+      "Operating Systems": 66,
+      "Database Systems": 64,
+      "Software Engineering": 96
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD078": {
+    "roll_number": "24BAD078",
+    "name": "Sample Student 078",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 60,
+      "Operating Systems": 77,
+      "Database Systems": 77,
+      "Software Engineering": 72
+    },
+    "gpa": 8.21,
+    "status": "PASS"
+  },
+  "24BAD079": {
+    "roll_number": "24BAD079",
+    "name": "Sample Student 079",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 67,
+      "Operating Systems": 88,
+      "Database Systems": 90,
+      "Software Engineering": 89
+    },
+    "gpa": 9.43,
+    "status": "PASS"
+  },
+  "24BAD080": {
+    "roll_number": "24BAD080",
+    "name": "Sample Student 080",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 74,
+      "Operating Systems": 55,
+      "Database Systems": 66,
+      "Software Engineering": 65
+    },
+    "gpa": 7.71,
+    "status": "PASS"
+  },
+  "24BAD081": {
+    "roll_number": "24BAD081",
+    "name": "Sample Student 081",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 81,
+      "Operating Systems": 66,
+      "Database Systems": 79,
+      "Software Engineering": 82
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD082": {
+    "roll_number": "24BAD082",
+    "name": "Sample Student 082",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 88,
+      "Operating Systems": 77,
+      "Database Systems": 92,
+      "Software Engineering": 58
+    },
+    "gpa": 9.07,
+    "status": "PASS"
+  },
+  "24BAD083": {
+    "roll_number": "24BAD083",
+    "name": "Sample Student 083",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 95,
+      "Operating Systems": 88,
+      "Database Systems": 68,
+      "Software Engineering": 75
+    },
+    "gpa": 9.36,
+    "status": "PASS"
+  },
+  "24BAD084": {
+    "roll_number": "24BAD084",
+    "name": "Sample Student 084",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 63,
+      "Operating Systems": 55,
+      "Database Systems": 81,
+      "Software Engineering": 92
+    },
+    "gpa": 8.07,
+    "status": "PASS"
+  },
+  "24BAD085": {
+    "roll_number": "24BAD085",
+    "name": "Sample Student 085",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 70,
+      "Operating Systems": 66,
+      "Database Systems": 94,
+      "Software Engineering": 68
+    },
+    "gpa": 8.43,
+    "status": "PASS"
+  },
+  "24BAD086": {
+    "roll_number": "24BAD086",
+    "name": "Sample Student 086",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 77,
+      "Operating Systems": 77,
+      "Database Systems": 70,
+      "Software Engineering": 85
+    },
+    "gpa": 9.0,
+    "status": "PASS"
+  },
+  "24BAD087": {
+    "roll_number": "24BAD087",
+    "name": "Sample Student 087",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 84,
+      "Operating Systems": 88,
+      "Database Systems": 83,
+      "Software Engineering": 61
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD088": {
+    "roll_number": "24BAD088",
+    "name": "Sample Student 088",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 91,
+      "Operating Systems": 55,
+      "Database Systems": 96,
+      "Software Engineering": 78
+    },
+    "gpa": 8.93,
+    "status": "PASS"
+  },
+  "24BAD089": {
+    "roll_number": "24BAD089",
+    "name": "Sample Student 089",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 98,
+      "Operating Systems": 66,
+      "Database Systems": 72,
+      "Software Engineering": 95
+    },
+    "gpa": 9.0,
+    "status": "PASS"
+  },
+  "24BAD090": {
+    "roll_number": "24BAD090",
+    "name": "Sample Student 090",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 66,
+      "Operating Systems": 77,
+      "Database Systems": 85,
+      "Software Engineering": 71
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD091": {
+    "roll_number": "24BAD091",
+    "name": "Sample Student 091",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 73,
+      "Operating Systems": 88,
+      "Database Systems": 98,
+      "Software Engineering": 88
+    },
+    "gpa": 9.43,
+    "status": "PASS"
+  },
+  "24BAD092": {
+    "roll_number": "24BAD092",
+    "name": "Sample Student 092",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 80,
+      "Operating Systems": 55,
+      "Database Systems": 74,
+      "Software Engineering": 64
+    },
+    "gpa": 7.79,
+    "status": "PASS"
+  },
+  "24BAD093": {
+    "roll_number": "24BAD093",
+    "name": "Sample Student 093",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 87,
+      "Operating Systems": 66,
+      "Database Systems": 87,
+      "Software Engineering": 81
+    },
+    "gpa": 9.21,
+    "status": "PASS"
+  },
+  "24BAD094": {
+    "roll_number": "24BAD094",
+    "name": "Sample Student 094",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 94,
+      "Operating Systems": 77,
+      "Database Systems": 63,
+      "Software Engineering": 98
+    },
+    "gpa": 9.07,
+    "status": "PASS"
+  },
+  "24BAD095": {
+    "roll_number": "24BAD095",
+    "name": "Sample Student 095",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 62,
+      "Operating Systems": 88,
+      "Database Systems": 76,
+      "Software Engineering": 74
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD096": {
+    "roll_number": "24BAD096",
+    "name": "Sample Student 096",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 69,
+      "Operating Systems": 55,
+      "Database Systems": 89,
+      "Software Engineering": 91
+    },
+    "gpa": 8.57,
+    "status": "PASS"
+  },
+  "24BAD097": {
+    "roll_number": "24BAD097",
+    "name": "Sample Student 097",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 76,
+      "Operating Systems": 66,
+      "Database Systems": 65,
+      "Software Engineering": 67
+    },
+    "gpa": 8.29,
+    "status": "PASS"
+  },
+  "24BAD098": {
+    "roll_number": "24BAD098",
+    "name": "Sample Student 098",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 83,
+      "Operating Systems": 77,
+      "Database Systems": 78,
+      "Software Engineering": 84
+    },
+    "gpa": 9.0,
+    "status": "PASS"
+  },
+  "24BAD099": {
+    "roll_number": "24BAD099",
+    "name": "Sample Student 099",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 90,
+      "Operating Systems": 88,
+      "Database Systems": 91,
+      "Software Engineering": 60
+    },
+    "gpa": 9.36,
+    "status": "PASS"
+  },
+  "24BAD100": {
+    "roll_number": "24BAD100",
+    "name": "Sample Student 100",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 97,
+      "Operating Systems": 55,
+      "Database Systems": 67,
+      "Software Engineering": 77
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD101": {
+    "roll_number": "24BAD101",
+    "name": "Sample Student 101",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 65,
+      "Operating Systems": 66,
+      "Database Systems": 80,
+      "Software Engineering": 94
+    },
+    "gpa": 8.64,
+    "status": "PASS"
+  },
+  "24BAD102": {
+    "roll_number": "24BAD102",
+    "name": "Sample Student 102",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 72,
+      "Operating Systems": 77,
+      "Database Systems": 93,
+      "Software Engineering": 70
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD103": {
+    "roll_number": "24BAD103",
+    "name": "Sample Student 103",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 79,
+      "Operating Systems": 88,
+      "Database Systems": 69,
+      "Software Engineering": 87
+    },
+    "gpa": 9.29,
+    "status": "PASS"
+  },
+  "24BAD104": {
+    "roll_number": "24BAD104",
+    "name": "Sample Student 104",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 86,
+      "Operating Systems": 55,
+      "Database Systems": 82,
+      "Software Engineering": 63
+    },
+    "gpa": 8.29,
+    "status": "PASS"
+  },
+  "24BAD105": {
+    "roll_number": "24BAD105",
+    "name": "Sample Student 105",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 93,
+      "Operating Systems": 66,
+      "Database Systems": 95,
+      "Software Engineering": 80
+    },
+    "gpa": 9.21,
+    "status": "PASS"
+  },
+  "24BAD106": {
+    "roll_number": "24BAD106",
+    "name": "Sample Student 106",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 61,
+      "Operating Systems": 77,
+      "Database Systems": 71,
+      "Software Engineering": 97
+    },
+    "gpa": 8.43,
+    "status": "PASS"
+  },
+  "24BAD107": {
+    "roll_number": "24BAD107",
+    "name": "Sample Student 107",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 68,
+      "Operating Systems": 88,
+      "Database Systems": 84,
+      "Software Engineering": 73
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD108": {
+    "roll_number": "24BAD108",
+    "name": "Sample Student 108",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 75,
+      "Operating Systems": 55,
+      "Database Systems": 97,
+      "Software Engineering": 90
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD109": {
+    "roll_number": "24BAD109",
+    "name": "Sample Student 109",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 82,
+      "Operating Systems": 66,
+      "Database Systems": 73,
+      "Software Engineering": 66
+    },
+    "gpa": 8.29,
+    "status": "PASS"
+  },
+  "24BAD110": {
+    "roll_number": "24BAD110",
+    "name": "Sample Student 110",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 89,
+      "Operating Systems": 77,
+      "Database Systems": 86,
+      "Software Engineering": 83
+    },
+    "gpa": 9.5,
+    "status": "PASS"
+  },
+  "24BAD111": {
+    "roll_number": "24BAD111",
+    "name": "Sample Student 111",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 96,
+      "Operating Systems": 88,
+      "Database Systems": 62,
+      "Software Engineering": 59
+    },
+    "gpa": 8.71,
+    "status": "PASS"
+  },
+  "24BAD112": {
+    "roll_number": "24BAD112",
+    "name": "Sample Student 112",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 64,
+      "Operating Systems": 55,
+      "Database Systems": 75,
+      "Software Engineering": 76
+    },
+    "gpa": 7.86,
+    "status": "PASS"
+  },
+  "24BAD113": {
+    "roll_number": "24BAD113",
+    "name": "Sample Student 113",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 71,
+      "Operating Systems": 66,
+      "Database Systems": 88,
+      "Software Engineering": 93
+    },
+    "gpa": 8.86,
+    "status": "PASS"
+  },
+  "24BAD114": {
+    "roll_number": "24BAD114",
+    "name": "Sample Student 114",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 78,
+      "Operating Systems": 77,
+      "Database Systems": 64,
+      "Software Engineering": 69
+    },
+    "gpa": 8.36,
+    "status": "PASS"
+  },
+  "24BAD115": {
+    "roll_number": "24BAD115",
+    "name": "Sample Student 115",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 85,
+      "Operating Systems": 88,
+      "Database Systems": 77,
+      "Software Engineering": 86
+    },
+    "gpa": 9.79,
+    "status": "PASS"
+  },
+  "24BAD116": {
+    "roll_number": "24BAD116",
+    "name": "Sample Student 116",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 92,
+      "Operating Systems": 55,
+      "Database Systems": 90,
+      "Software Engineering": 62
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD117": {
+    "roll_number": "24BAD117",
+    "name": "Sample Student 117",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 60,
+      "Operating Systems": 66,
+      "Database Systems": 66,
+      "Software Engineering": 79
+    },
+    "gpa": 7.93,
+    "status": "PASS"
+  },
+  "24BAD118": {
+    "roll_number": "24BAD118",
+    "name": "Sample Student 118",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 67,
+      "Operating Systems": 77,
+      "Database Systems": 79,
+      "Software Engineering": 96
+    },
+    "gpa": 8.93,
+    "status": "PASS"
+  },
+  "24BAD119": {
+    "roll_number": "24BAD119",
+    "name": "Sample Student 119",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 74,
+      "Operating Systems": 88,
+      "Database Systems": 92,
+      "Software Engineering": 72
+    },
+    "gpa": 9.0,
+    "status": "PASS"
+  },
+  "24BAD120": {
+    "roll_number": "24BAD120",
+    "name": "Sample Student 120",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 81,
+      "Operating Systems": 55,
+      "Database Systems": 68,
+      "Software Engineering": 89
+    },
+    "gpa": 8.43,
+    "status": "PASS"
+  },
+  "24BAD121": {
+    "roll_number": "24BAD121",
+    "name": "Sample Student 121",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 88,
+      "Operating Systems": 66,
+      "Database Systems": 81,
+      "Software Engineering": 65
+    },
+    "gpa": 8.79,
+    "status": "PASS"
+  },
+  "24BAD122": {
+    "roll_number": "24BAD122",
+    "name": "Sample Student 122",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 95,
+      "Operating Systems": 77,
+      "Database Systems": 94,
+      "Software Engineering": 82
+    },
+    "gpa": 9.5,
+    "status": "PASS"
+  },
+  "24BAD123": {
+    "roll_number": "24BAD123",
+    "name": "Sample Student 123",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 63,
+      "Operating Systems": 88,
+      "Database Systems": 70,
+      "Software Engineering": 58
+    },
+    "gpa": 8.07,
+    "status": "PASS"
+  },
+  "24BAD124": {
+    "roll_number": "24BAD124",
+    "name": "Sample Student 124",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 70,
+      "Operating Systems": 55,
+      "Database Systems": 83,
+      "Software Engineering": 75
+    },
+    "gpa": 8.14,
+    "status": "PASS"
+  },
+  "24BAD125": {
+    "roll_number": "24BAD125",
+    "name": "Sample Student 125",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 77,
+      "Operating Systems": 66,
+      "Database Systems": 96,
+      "Software Engineering": 92
+    },
+    "gpa": 9.14,
+    "status": "PASS"
+  },
+  "24BAD126": {
+    "roll_number": "24BAD126",
+    "name": "Sample Student 126",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 84,
+      "Operating Systems": 77,
+      "Database Systems": 72,
+      "Software Engineering": 68
+    },
+    "gpa": 8.57,
+    "status": "PASS"
+  },
+  "24BAD127": {
+    "roll_number": "24BAD127",
+    "name": "Sample Student 127",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 91,
+      "Operating Systems": 88,
+      "Database Systems": 85,
+      "Software Engineering": 85
+    },
+    "gpa": 10.0,
+    "status": "PASS"
+  },
+  "24BAD128": {
+    "roll_number": "24BAD128",
+    "name": "Sample Student 128",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 98,
+      "Operating Systems": 55,
+      "Database Systems": 98,
+      "Software Engineering": 61
+    },
+    "gpa": 8.5,
+    "status": "PASS"
+  },
+  "24BAD129": {
+    "roll_number": "24BAD129",
+    "name": "Sample Student 129",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 66,
+      "Operating Systems": 66,
+      "Database Systems": 74,
+      "Software Engineering": 78
+    },
+    "gpa": 8.21,
+    "status": "PASS"
+  },
+  "24BAD130": {
+    "roll_number": "24BAD130",
+    "name": "Sample Student 130",
+    "branch": "Artificial Intelligence and Data Science",
+    "semester": "4th Semester",
+    "scores": {
+      "Computer Networks": 73,
+      "Operating Systems": 77,
+      "Database Systems": 87,
+      "Software Engineering": 95
+    },
+    "gpa": 9.14,
+    "status": "PASS"
+  }
+}

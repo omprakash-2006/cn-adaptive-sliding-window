@@ -1,0 +1,8 @@
+backend/
+tests/
+render.yaml
+README.md
+TEST_REPORT.md
+*.sqlite3*
+.tools/
+.env*

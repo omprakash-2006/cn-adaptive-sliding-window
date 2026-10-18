@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "outputDirectory": "public",
+  "functions": {"api/portal.mjs": {"maxDuration": 120}},
+  "rewrites": [
+    {"source": "/((?!api/portal).*)", "destination": "/api/portal?__path=/$1"}
+  ]
+}
