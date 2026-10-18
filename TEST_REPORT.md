@@ -18,3 +18,19 @@ All records are synthetic; no real college database is connected.
 - Hosted presenter login additionally requires a private CN_DEMO_PASSWORD in Render. The owner must set this credential; it is not included in the source.
 
 No 1,000-client capacity test has been performed. Local integration results do not establish cloud capacity or uninterrupted uptime. The backend free plan can sleep after inactivity and its SQLite files are ephemeral.
+
+## Full audit — 19 October 2026
+
+Confirmed and fixed:
+- A valid current snapshot for a different student could pass the cache guard. A regression seeded the wrong student's record and failed before the fix. The gate now binds the record to the requested registration, including cache delivery-source classification.
+- Student queue polling ran every 70 ms even while a prior request was pending, accepted malformed/error responses, and could wait indefinitely or issue an extra result request on failure. Polling now waits for each response, pauses 500 ms, validates responses, retries the existing session at most twice on consecutive failures, and shows a recovery link.
+- Queue progress no longer calls queue movement a percentage of processing or labels an already queued student as instant admission.
+- Cloud status polling cannot overlap itself, and burst controls remain disabled while a demonstration is running.
+
+Automated verification on the final code: **37 tests passed** (22 protocol/publication/HTTP tests, 2 cloud integration tests, 13 proxy/browser-script tests).
+
+Coverage includes 130 simultaneous TCP clients with peak active work bounded by W=10; 130 result lookups using 45 HTTP workers; 25 concurrent browser queue sessions with W=3; matching registration and version; all 130 records' grades, status and SGPA; CRC retransmission and Hamming recovery; stale-version rejection; correction during delivery; disconnected waiter removal; unknown registration; authority outage; cache fallback; malformed/non-200 browser responses; double submission; protected cloud actions; real 26-client cloud-demo integration and automatic normal-mode restoration.
+
+Manual browser checks used an isolated local database: 390px mobile homepage and result, real date validation (31 February rejected), whitespace/lowercase registration normalization, loaded images, no document-level horizontal overflow, scrollable marks table, back navigation, and every local correction/failure/traffic button. A student visibly queued at #48 during a 50-request burst and received the matching marksheet. Print-button activation was attempted; native PDF export could not be fully inspected through the browser automation surface. The external college circular returned HTTP 200 / application/pdf.
+
+These bounded tests do not establish 1,000-user cloud capacity or guarantee zero bugs. Free hosting cold starts remain possible. DOB is a format/calendar check on synthetic records, not student authentication. Public sample marks remain unchanged by this audit.

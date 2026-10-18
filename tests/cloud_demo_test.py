@@ -85,6 +85,12 @@ class DemoIntegration(unittest.TestCase):
         forged=cookie[:-1]+('a' if cookie[-1]!='a' else 'b')
         self.assertEqual(self.call('/api/cloud-demo/status',cookie=forged)[0],401)
         self.assertEqual(self.call('/api/cloud-demo/control',{'action':'unknown'},cookie)[0],400)
+        code, state, _ = self.call('/api/cloud-demo/control', {'action':'slow'}, cookie)
+        self.assertEqual(code, 200)
+        self.assertEqual(state['metrics']['window_size'], 3)
+        code, state, _ = self.call('/api/cloud-demo/control', {'action':'normal'}, cookie)
+        self.assertEqual(code, 200)
+        self.assertEqual(state['metrics']['window_size'], 10)
         self.assertEqual(self.call('/api/cloud-demo/control',{'action':'run'},cookie)[0],200)
         self.assertEqual(self.call('/api/cloud-demo/control',{'action':'burst'},cookie)[0],409)
         observed=False

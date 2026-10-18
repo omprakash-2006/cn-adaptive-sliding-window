@@ -55,7 +55,7 @@ def cleanup_completed_sessions():
 # ============================================================================
 # PAGE 1: SEARCH PORTAL WITH LIVE QUEUE WAITING SCREEN & LAB CONTROLS
 # ============================================================================
-HTML_PORTAL_PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>End Semester Examinations Results MAY 2026</title><style>
+HTML_PORTAL_PAGE = r"""<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>End Semester Examinations Results MAY 2026</title><style>
 @font-face{font-family:Poppins;src:url('/poppins-400.ttf') format('truetype');font-weight:400;font-display:swap}@font-face{font-family:Poppins;src:url('/poppins-500.ttf') format('truetype');font-weight:500;font-display:swap}@font-face{font-family:Poppins;src:url('/poppins-700.ttf') format('truetype');font-weight:700;font-display:swap}
 *,:before,:after{box-sizing:border-box}body{margin:0;font-family:Poppins,sans-serif;font-size:16px;font-weight:400;line-height:1.5;color:#212529;background:url('/college-background.jpg') center center/cover no-repeat fixed;min-height:100vh}button,input,a{font-family:inherit}button,a{touch-action:manipulation}a{text-decoration:none;color:#007bff}a:hover{color:#0056b3}button{cursor:pointer}button:disabled{opacity:.6;cursor:wait}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #ffc107;outline-offset:3px}
 .login-area{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:100%;max-width:700px}.portal-card{display:flex;margin:0 -15px;background:white}.left-panel{width:41.666667%;padding:0 15px;background:#007bff;color:white}.left-pannel{margin:80px 0}.crest-wrap{text-align:center}.crest-img{vertical-align:middle;width:250px;height:200px;object-fit:contain;max-width:100%}.college-name-left{font-size:14px;line-height:21px;margin:0 0 16px;white-space:nowrap}.circular-space{height:72px}.btn-circular{display:inline-flex;align-items:center;gap:5px;color:white;background:#da573b;border:1px solid #be5238;padding:6px 12px;border-radius:4px;font-size:16px;line-height:24px;font-weight:400}.btn-circular:hover{background:#be5238;border-color:#9b4631;color:white}.btn-circular svg{width:15px;height:15px}
@@ -72,120 +72,106 @@ HTML_PORTAL_PAGE = """<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"
 
 <div id="queueModal" class="queue-modal-overlay"><section class="queue-modal-card" role="dialog" aria-modal="true" aria-labelledby="queueTitle" aria-describedby="queueIntro" tabindex="-1"><img src="/mepco_crest.png" class="queue-crest" alt=""><h3 id="queueTitle">Your Result Request Is Active</h3><p id="queueIntro" class="queue-intro">The examination server is managing incoming requests.<br>Keep this page open. Your result will appear automatically.</p><div class="queue-stats-box" aria-live="polite" aria-atomic="true"><div class="queue-stat-item"><div class="stat-lbl">Live Queue Position</div><div id="queuePosVal" class="stat-val">Checking…</div></div><div class="queue-stat-item"><div class="stat-lbl">Estimated Wait Time</div><div id="queueEstVal" class="stat-val">Calculating…</div></div></div><div class="progress-track"><div id="progressBarFill" class="progress-bar-fill" style="width:20%"></div></div><div class="progress-description"><span id="queueStatusText">Connecting to the server…</span><span id="queuePercentText">Please wait</span></div><div class="queue-protocol-badge">Your place is saved · No need to refresh this page</div><a id="queueRetry" href="/" hidden style="display:inline-block;margin-top:16px;color:#007bff">Return to result search</a></section></div>
   <script>
-    let isSlowMo = false;
-    let initialQueueSize = 1;
-
-
-
-    // Handle live student search query submission
-    function handleQuerySubmit(e) {
-      e.preventDefault();
-      const roll = document.getElementById('regNoInput').value.replace(/\s/g,'').toUpperCase() || '24BAD025';
-      const btn = document.getElementById('btnSubmit');
-      btn.disabled = true;
-      btn.innerText = 'Connecting...';
-
-      // 1. Immediately show the queue waiting modal on button click!
-      const modal = document.getElementById('queueModal');
-      const posVal = document.getElementById('queuePosVal');
-      const estVal = document.getElementById('queueEstVal');
-      const barFill = document.getElementById('progressBarFill');
-      const statusText = document.getElementById('queueStatusText');
-      const pctText = document.getElementById('queuePercentText');
-
-      modal.style.display = 'flex';
-      modal.querySelector('.queue-modal-card').focus();
-      posVal.innerText = 'Checking...';
-      posVal.style.color = '#0022cc';
-      estVal.innerText = 'Calculating…';
-      barFill.style.width = '35%';
-      pctText.innerText = 'Connecting';
-      statusText.innerText = 'Checking your request…';
-
-      // 2. Start asynchronous query session with real-time telemetry
-      fetch('/api/query_start?roll=' + encodeURIComponent(roll))
-        .then(r => r.json())
-        .then(sessionData => {
-          const sessionId = sessionData.session_id;
-          pollQueueProgress(sessionId, roll);
-        })
-        .catch(err => {
-          btn.disabled = false;
-          btn.innerText = 'Results';
-          window.location.href = '/result?roll=' + encodeURIComponent(roll);
-        });
+    async function queueRequest(url, timeoutMs) {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const response = await fetch(url, {cache: 'no-store', signal: controller.signal});
+        if (!response.ok) throw new Error('Server unavailable');
+        return await response.json();
+      } finally { clearTimeout(timer); }
     }
 
-    // Poll queue position and estimated wait time in real-time
-    function pollQueueProgress(sessionId, roll) {
+    function queueError(message) {
+      document.getElementById('queueStatusText').innerText = message;
+      document.getElementById('queuePosVal').innerText = 'Unavailable';
+      document.getElementById('queueEstVal').innerText = '—';
+      document.getElementById('queuePercentText').innerText = 'Please retry';
+      document.getElementById('queueRetry').hidden = false;
+      document.querySelector('.queue-protocol-badge').hidden = true;
+      document.getElementById('progressBarFill').style.width = '0%';
+    }
+
+    async function handleQuerySubmit(e) {
+      e.preventDefault();
+      const btn = document.getElementById('btnSubmit');
+      if (btn.disabled) return;
+      const roll = document.getElementById('regNoInput').value.replace(/\s/g,'').toUpperCase();
+      btn.disabled = true;
+      btn.innerText = 'Connecting…';
       const modal = document.getElementById('queueModal');
+      modal.style.display = 'flex';
+      modal.querySelector('.queue-modal-card').focus();
+      document.getElementById('queueRetry').hidden = true;
+      document.getElementById('queuePosVal').innerText = 'Checking…';
+      document.getElementById('queueStatusText').innerText = 'Connecting. A sleeping server may take a moment to start…';
+      try {
+        const data = await queueRequest('/api/query_start?roll=' + encodeURIComponent(roll), 115000);
+        if (!data || typeof data.session_id !== 'string' || !data.session_id) throw new Error('Invalid session');
+        await pollQueueProgress(data.session_id, roll);
+      } catch {
+        queueError('Could not start your request. Please return to result search and try again.');
+      }
+    }
+
+    async function pollQueueProgress(sessionId, roll) {
       const posVal = document.getElementById('queuePosVal');
       const estVal = document.getElementById('queueEstVal');
       const barFill = document.getElementById('progressBarFill');
       const statusText = document.getElementById('queueStatusText');
       const pctText = document.getElementById('queuePercentText');
-      const btn = document.getElementById('btnSubmit');
-
-      let maxTotalQueued = 1;
-      let initialPosition = null;
-
-      const interval = setInterval(() => {
-        fetch('/api/query_poll?session_id=' + sessionId)
-          .then(r => r.json())
-          .then(data => {
-            if (data.done) {
-              clearInterval(interval);
-              if (!data.result || !data.result.success) {
-                statusText.innerText = data.result && data.result.status_message === 'RECORD_NOT_FOUND'
-                  ? 'Register number not found. Please check your details.'
-                  : 'Your result is temporarily unavailable. Please try again shortly.';
-                posVal.innerText = 'Not delivered';
-                estVal.innerText = '—';
-                pctText.innerText = 'Please retry';
-                document.getElementById('queueRetry').hidden = false;
-                return;
-              }
-              // Result ready! Smooth transition directly to result marksheet page
-              statusText.innerText = 'Your result is ready. Opening marksheet…';
-              posVal.innerText = 'Completed!';
-              posVal.style.color = '#15803d';
-              estVal.innerText = '0.0s';
-              barFill.style.width = '100%';
-              pctText.innerText = '100% Ready';
-              setTimeout(() => {
-                window.location.href = '/result?roll=' + encodeURIComponent(roll);
-              }, 160);
+      let initialPosition = 0, failures = 0;
+      // Schedule the next poll only after this one finishes: one request per student at a time.
+      async function poll() {
+        let nextDelay = 500;
+        try {
+          const data = await queueRequest('/api/query_poll?session_id=' + encodeURIComponent(sessionId), 15000);
+          if (!data || typeof data.done !== 'boolean' || (!data.done && !Number.isFinite(data.position))) {
+            throw new Error('Invalid queue update');
+          }
+          failures = 0;
+          if (data.done) {
+            if (!data.result || !data.result.success) {
+              queueError(data.result && data.result.status_message === 'RECORD_NOT_FOUND'
+                ? 'Register number not found. Please check your details.'
+                : 'Your result is temporarily unavailable. Please return to result search.');
               return;
             }
-
-            modal.style.display = 'flex';
-
-            if (data.position > 0) {
-              if (initialPosition === null) initialPosition = data.position;
-              maxTotalQueued = Math.max(maxTotalQueued, data.total_queued || 1, initialPosition);
-
-              posVal.innerText = `#${data.position} of ${data.total_queued || maxTotalQueued}`;
-              posVal.style.color = '#e65100';
-              estVal.innerText = `~${data.estimated_sec.toFixed(1)}s`;
-
-              const progressPct = Math.min(90, Math.max(25, Math.round(((maxTotalQueued - data.position + 1) / (maxTotalQueued + 1)) * 100)));
-              barFill.style.width = progressPct + '%';
-              pctText.innerText = progressPct + '% Processed';
-              statusText.innerText = `Your position is #${data.position}. Please keep this page open.`;
-            } else if (data.position === 0 || data.status === 'ACTIVE_PROCESSING') {
-              posVal.innerText = 'Processing';
-              posVal.style.color = '#15803d';
-              estVal.innerText = '~' + Number(data.estimated_sec || 0).toFixed(1) + 's';
-              statusText.innerText = 'Preparing your marksheet…';
-              barFill.style.width = '95%';
-              pctText.innerText = 'Immediate Admission';
-            }
-          })
-          .catch(() => {
-            clearInterval(interval);
+            statusText.innerText = 'Your result is ready. Opening marksheet…';
+            posVal.innerText = 'Completed!';
+            estVal.innerText = '0.0s';
+            barFill.style.width = '100%';
+            pctText.innerText = 'Ready';
             window.location.href = '/result?roll=' + encodeURIComponent(roll);
-          });
-      }, 70);
+            return;
+          }
+          if (data.position > 0) {
+            initialPosition = Math.max(initialPosition, data.position);
+            posVal.innerText = `#${data.position} of ${data.total_queued || data.position}`;
+            const estimate = Number(data.estimated_sec);
+            estVal.innerText = Number.isFinite(estimate) ? `~${estimate.toFixed(1)}s` : 'Calculating…';
+            barFill.style.width = Math.min(90, 20 + 70 * (1 - data.position / initialPosition)) + '%';
+            pctText.innerText = 'Waiting';
+            statusText.innerText = 'Your place is saved. Please keep this page open.';
+          } else {
+            posVal.innerText = 'Processing';
+            estVal.innerText = 'Please wait';
+            barFill.style.width = '95%';
+            pctText.innerText = 'Preparing result';
+            statusText.innerText = 'Preparing your marksheet…';
+          }
+        } catch {
+          failures += 1;
+          if (failures >= 3) {
+            queueError('Connection interrupted. Please return to result search and try again.');
+            return;
+          }
+          statusText.innerText = 'Reconnecting to your existing request…';
+          nextDelay = failures * 1000;
+        }
+        setTimeout(poll, nextDelay);
+      }
+      await poll();
     }
   </script></body></html>"""
 

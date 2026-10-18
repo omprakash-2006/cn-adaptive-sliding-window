@@ -5,13 +5,19 @@ from datetime import datetime, timezone
 from publication import EXAM_ID, VerificationUnavailable
 
 
+def matches_current_student(roll, candidate, store):
+    record = (candidate or {}).get("result_data")
+    return (bool((candidate or {}).get("success")) and isinstance(record, dict)
+            and record.get("roll_number") == roll and store.is_current(record))
+
+
 def guard_result(roll, candidate, store):
     with store.lock:
         try:
             current = store.snapshot(roll)
             if current is None:
                 return {"success": False, "status_message": "RECORD_NOT_FOUND", "result_data": None}
-            if candidate and candidate.get("success") and store.is_current(candidate.get("result_data")):
+            if matches_current_student(roll, candidate, store):
                 result = copy.deepcopy(candidate)
                 result.setdefault("delivery_source", "tcp_verified")
             else:
@@ -42,7 +48,7 @@ def resolve_result(roll, store, cache, fetch, force=False):
             if not force and entry and time.monotonic() - entry[1] < 60:
                 guarded = guard_result(roll, entry[0], store)
                 if guarded["success"]:
-                    guarded["delivery_source"] = "verified_cache" if store.is_current(entry[0].get("result_data")) else "published_snapshot"
+                    guarded["delivery_source"] = "verified_cache" if matches_current_student(roll, entry[0], store) else "published_snapshot"
                     cache[key] = (copy.deepcopy(guarded), time.monotonic())
                 return guarded
         except VerificationUnavailable:
