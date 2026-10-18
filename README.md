@@ -6,6 +6,13 @@ The student website deploys to Vercel. A single Python backend hosts the actual 
 
 Source preparation and local checks are complete. Vercel and backend account connections are required before publication. This folder is not evidence of a completed cloud deployment and does not yet have a permanent production URL.
 
+## Deployment shortcuts
+
+1. [Deploy the Python backend on Render](https://render.com/deploy?repo=https%3A%2F%2Fgithub.com%2Fomprakash-2006%2Fcn-adaptive-sliding-window). The blueprint explicitly selects the free plan. Wait for a successful deployment and copy its HTTPS address.
+2. [Deploy the student website on Vercel](https://vercel.com/clone?repository-url=https%3A%2F%2Fgithub.com%2Fomprakash-2006%2Fcn-adaptive-sliding-window&env=BACKEND_URL&envDescription=Paste%20the%20HTTPS%20address%20of%20your%20deployed%20Render%20backend). Enter the backend address as `BACKEND_URL`.
+
+These links open account setup/deployment flows. They are not the running student website. The final student link is the actual `.vercel.app` URL returned after Vercel completes deployment.
+
 ## Why the backend runs separately
 
 The current Python implementation maintains a single active window, waiting queue and TCP listener. Ordinary Vercel function instances can scale independently and stop when idle, so moving that in-memory controller into each function would create separate queues. The Vercel handler forwards student HTTP requests to one backend instead. The actual CN protocol continues to run on that backend, rather than being replaced with a visual simulation.
