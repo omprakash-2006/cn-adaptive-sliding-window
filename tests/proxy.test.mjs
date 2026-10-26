@@ -72,3 +72,18 @@ test('service failures and missing deployment configuration produce clear errors
   assert.equal((await run('/api/portal?__path=/',{backendUrl:'http://backend.test'})).status,503);
   assert.equal((await run('/api/portal?__path=/',{},'POST')).status,405);
 });
+
+test('authenticated evidence downloads retain their cookie, attachment header and no-store policy',async()=>{
+  let observed;
+  const result=await run('/api/cloud-demo/evidence',{
+    backendUrl:'https://backend.test',fetchImpl:async(url,options)=>{
+      observed={url:String(url),cookie:options.headers.Cookie};
+      return new Response('{"requests":[]}',{headers:{'content-type':'application/json','content-disposition':'attachment; filename="cn-queue-evidence.json"'}});
+    },
+  },'GET',{headers:{cookie:'unrelated=private; __Host-cn_demo=123.nonce.signature'}});
+  assert.equal(observed.url,'https://backend.test/api/cloud-demo/evidence');
+  assert.equal(observed.cookie,'__Host-cn_demo=123.nonce.signature');
+  assert.equal(result.headers['Content-Disposition'],'attachment; filename="cn-queue-evidence.json"');
+  assert.equal(result.headers['Cache-Control'],'no-store');
+  assert.equal(result.status,200);
+});

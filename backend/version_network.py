@@ -111,10 +111,10 @@ def serve_result(sock, roll, request_id, version_aware, store, error_rate=0):
 
 
 def request_result(roll_number="24BAD025", host="127.0.0.1", port=65433,
-                   timeout=10, verbose=True, queue_callback=None):
+                   timeout=10, verbose=True, queue_callback=None, request_id=None):
     roll_number = normalize_roll(roll_number)
     started = time.monotonic()
-    request_id = uuid.uuid4().hex
+    request_id = uuid.uuid4().hex if request_id is None else uuid.UUID(request_id).hex
     stats = {"success": False, "latency": 0, "roll_number": roll_number, "queued": False,
              "max_queue_pos": 0, "error_detected": False, "error_corrected": False,
              "status_message": "INITIALIZING", "result_data": None, "request_id": request_id,

@@ -71,6 +71,7 @@ class DemoIntegration(unittest.TestCase):
     def test_01_authentication_and_legacy_controls(self):
         self.assertEqual(self.call('/demo')[0],200)
         self.assertEqual(self.call('/api/cloud-demo/status')[0],401)
+        self.assertEqual(self.call('/api/cloud-demo/evidence')[0],401)
         self.assertEqual(self.call('/api/cloud-demo/control',{'action':'run'})[0],401)
         self.assertEqual(self.call('/api/cloud-demo/login',{'password':self.password},origin=False)[0],403)
         self.assertEqual(self.call('/api/cloud-demo/login',{'password':'incorrect'})[0],401)
@@ -112,6 +113,29 @@ class DemoIntegration(unittest.TestCase):
         self.assertTrue(d['tracked']['version_verified'])
         self.assertEqual(d['metrics']['window_size'],10)
         self.assertEqual(d['metrics']['processing_delay'],.2)
+        code, evidence, headers = self.call('/api/cloud-demo/evidence', cookie=cookie)
+        self.assertEqual(code, 200)
+        self.assertIn('attachment;', headers['Content-Disposition'])
+        self.assertEqual(evidence['run_id'], d['run_id'])
+        self.assertEqual(evidence['evidence']['background_received'], 25)
+        self.assertEqual(evidence['evidence']['tcp_received'], 26)
+        self.assertEqual(evidence['evidence']['tcp_admitted'], 26)
+        self.assertEqual(evidence['evidence']['distinct_tcp_connections'], 26)
+        rows = evidence['requests']
+        self.assertEqual(len(rows), 26)
+        self.assertEqual(len({r['request_id'] for r in rows}), 26)
+        self.assertEqual([r['roll'] for r in rows if r['role']=='background'], [f'24BAD{i:03d}' for i in range(1,26)])
+        trace = [json.loads(line.split('CN_EVIDENCE ',1)[1]) for line in (Path(self.temp.name)/'server.log').read_text().splitlines() if line.startswith('CN_EVIDENCE ')]
+        for row in rows:
+            self.assertTrue(row['success'] and row['done'])
+            self.assertEqual(row['status'], 'DELIVERED')
+            self.assertTrue(row['crc_verified'] and row['version_verified'])
+            self.assertLessEqual(row['server_received_at'], row['server_admitted_at'])
+            self.assertLessEqual(row['server_admitted_at'], row['client_finished_at'])
+            self.assertGreaterEqual(row['server_wait_ms'], 0)
+            events = [e for e in trace if e['request_id']==row['request_id']]
+            self.assertEqual([e['event'] for e in events], ['TCP_RECEIVED','TCP_ADMITTED','TCP_CLOSED'])
+            self.assertTrue(all(e['run_id']==evidence['run_id'] and e['tcp_peer']==row['tcp_peer'] for e in events))
         self.assertEqual(self.call('/api/cloud-demo/logout',{},cookie)[0],200)
         # Existing student result service remains available after the demonstration.
         code,r,_=self.call('/api/query?roll=24BAD130&force=1')

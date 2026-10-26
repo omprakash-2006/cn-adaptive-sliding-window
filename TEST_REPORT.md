@@ -34,3 +34,13 @@ Coverage includes 130 simultaneous TCP clients with peak active work bounded by 
 Manual browser checks used an isolated local database: 390px mobile homepage and result, real date validation (31 February rejected), whitespace/lowercase registration normalization, loaded images, no document-level horizontal overflow, scrollable marks table, back navigation, and every local correction/failure/traffic button. A student visibly queued at #48 during a 50-request burst and received the matching marksheet. Print-button activation was attempted; native PDF export could not be fully inspected through the browser automation surface. The external college circular returned HTTP 200 / application/pdf.
 
 These bounded tests do not establish 1,000-user cloud capacity or guarantee zero bugs. Free hosting cold starts remain possible. DOB is a format/calendar check on synthetic records, not student authentication. Public sample marks remain unchanged by this audit.
+
+## Per-request backend evidence — 26 October 2026
+
+The protected cloud demonstration now records a bounded ledger from the actual TCP socket handler for the 25 background clients and one tracked client. Every row includes a unique request ID, peer address, server receive/admission times, observed queue status, completion latency, and client CRC/version checks. The JSON download is presenter-authenticated and uncached. The same run/request identifiers appear in independent `CN_EVIDENCE` log lines emitted by the TCP handler.
+
+A request counts as delivered only when the matching TCP client verified its result and the server ledger confirms its admission. Evidence is limited to the most recent four explicitly registered demo runs; ordinary student requests are not added to the ledger. The student portal UI remains unchanged.
+
+Validation: 22 protocol/publication/concurrency tests, 2 real HTTP/TCP integration tests, and 15 proxy/UI-script tests passed (39 total). The integration test verified 26 distinct real TCP connections, all 25 background registrations, distinct request IDs, admission timestamps, matching CRC/version-verified replies, and receive/admit/close log entries matching each downloaded evidence row. Unauthenticated evidence download returned 401. Normal W=10 was restored after the run.
+
+See VIVA_BACKEND_PROOF.md for demonstration steps and the precise distinction between synthetic students and real socket traffic.

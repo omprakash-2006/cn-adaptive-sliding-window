@@ -42,6 +42,9 @@ ERROR_SIMULATION_RATE = 0.05    # 5% probability of simulating transmission erro
 PROCESSING_DELAY = 0.20         # Realistic database query latency (200ms)
 BASELINE_CAPACITY_LIMIT = 12    # In Baseline mode, concurrent load beyond this causes failure
 
+from request_evidence import RequestEvidence
+REQUEST_EVIDENCE = RequestEvidence()
+
 GLOBAL_CONTROLLER = None
 CURRENT_PROCESSING_DELAY = PROCESSING_DELAY
 
@@ -218,6 +221,7 @@ def handle_client_adaptive(client_sock, client_addr, controller):
     """Version negotiation/retry stays inside one admitted FIFO request."""
     req_id = f"{client_addr[0]}:{client_addr[1]}"
     acquired = False
+    query_id = roll = None
     try:
         client_sock.settimeout(10)
         frame = protocol.receive_frame(client_sock)
@@ -227,13 +231,17 @@ def handle_client_adaptive(client_sock, client_addr, controller):
             send_error(client_sock, "Invalid request frame", "PROTOCOL_ERROR")
             return
         roll, query_id, aware = parse_request(frame[2])
+        REQUEST_EVIDENCE.record(query_id, roll, 'TCP_RECEIVED', client_addr)
         controller.acquire_slot(req_id, client_sock)
         acquired = True
+        REQUEST_EVIDENCE.record(query_id, roll, 'TCP_ADMITTED')
         time.sleep(CURRENT_PROCESSING_DELAY)
         serve_result(client_sock, roll, query_id, aware, PUBLICATIONS, ERROR_SIMULATION_RATE)
     except Exception as exc:
         log_event("ERROR", f"Request {req_id}: {exc}", COLOR_RED)
     finally:
+        if query_id is not None:
+            REQUEST_EVIDENCE.record(query_id, roll, 'TCP_CLOSED')
         if acquired:
             controller.release_slot(req_id)
         else:
