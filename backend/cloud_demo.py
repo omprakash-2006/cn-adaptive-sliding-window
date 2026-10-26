@@ -240,6 +240,13 @@ class CloudDemo:
             threads.append(tracked); tracked.start()
             for t in threads:
                 t.join()
+            # Let the server record its socket teardown before sealing the run's evidence.
+            deadline = time.monotonic() + 1
+            while time.monotonic() < deadline:
+                records = self.server.REQUEST_EVIDENCE.snapshot(run_id).values()
+                if all(not r['server_received_at'] or r['server_finished_at'] for r in records):
+                    break
+                time.sleep(.01)
         finally:
             with self.lock:
                 self.restore()

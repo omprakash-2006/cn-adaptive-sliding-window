@@ -240,13 +240,13 @@ def handle_client_adaptive(client_sock, client_addr, controller):
     except Exception as exc:
         log_event("ERROR", f"Request {req_id}: {exc}", COLOR_RED)
     finally:
-        if query_id is not None:
-            REQUEST_EVIDENCE.record(query_id, roll, 'TCP_CLOSED')
         if acquired:
             controller.release_slot(req_id)
         else:
             controller.remove_disconnected(req_id)
         client_sock.close()
+        if query_id is not None:
+            REQUEST_EVIDENCE.record(query_id, roll, 'TCP_CLOSED')
 
 
 def handle_client_baseline(client_sock: socket.socket, client_addr: tuple, active_counter: list, counter_lock: threading.Lock):
