@@ -41,3 +41,20 @@ test('evidence rows display only server-provided observations and reset for a ne
  ui.context.render(state(false));assert.equal(ui.element('requestRows').children.length,0);
  assert.equal(ui.element('evidenceDownload').hidden,true);
 });
+
+test('manual portal submissions appear without a demo run and repeated rolls stay separate',async()=>{
+ const ui=setup(async()=>({ok:true,json:async()=>state(false)}));
+ await new Promise(r=>setImmediate(r));
+ const row={roll:'24BAD114',role:'portal',request_id:'first',status:'QUEUED',position:8,max_position:8,server_received_at:'2026-10-28T10:00:00.100+00:00'};
+ const proof={...state(false),portal_evidence:{tcp_received:2},portal_requests:[row,{...row,request_id:'second',status:'FAILED',done:true}]};
+ ui.context.render(proof);
+ const rows=ui.element('requestRows').children;
+ assert.equal(rows.length,2);
+ assert.equal(rows[0].children[0].textContent,'24BAD114 · Student portal');
+ assert.equal(rows[0].children[1].children[0].textContent,'second');
+ assert.equal(rows[0].children[2].textContent,'FAILED');
+ assert.equal(rows[1].children[1].children[0].textContent,'first');
+ assert.equal(rows[1].children[2].textContent,'QUEUED');
+ assert.equal(ui.element('portalReceived').textContent,2);
+ assert.equal(ui.element('evidenceDownload').hidden,false);
+});

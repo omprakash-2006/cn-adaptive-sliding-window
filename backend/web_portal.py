@@ -43,6 +43,28 @@ TOTAL_BURST_QUERIES = 0
 SESSION_RETENTION_SECONDS = 300
 
 
+def request_student_result(roll_number, timeout=8, queue_callback=None):
+    """Observe the real portal TCP request without changing admission or delivery."""
+    request_id = uuid.uuid4().hex
+    evidence = server.REQUEST_EVIDENCE
+    evidence.start_portal(request_id, roll_number)
+
+    def telemetry(position, total, status):
+        evidence.portal_queue(request_id, position)
+        if queue_callback:
+            queue_callback(position, total, status)
+
+    try:
+        result = client.request_result(roll_number, host='127.0.0.1', port=TCP_SERVER_PORT,
+                                       timeout=timeout, verbose=False,
+                                       queue_callback=telemetry, request_id=request_id)
+    except Exception:
+        evidence.finish_portal(request_id, {})
+        raise
+    evidence.finish_portal(request_id, result)
+    return result
+
+
 def cleanup_completed_sessions():
     """Expire finished sessions without removing students still in FIFO."""
     now = time.monotonic()
@@ -986,7 +1008,7 @@ class PortalHTTPHandler(http.server.BaseHTTPRequestHandler):
             roll_number = normalize_roll(params.get("roll", ["24BAD025"])[0])
 
             res = resolve_result(roll_number, server.PUBLICATIONS, CACHED_RESULTS,
-                lambda: client.request_result(roll_number, port=TCP_SERVER_PORT, timeout=8, verbose=False))
+                lambda: request_student_result(roll_number))
             with server.PUBLICATIONS.lock:
                 res = guard_result(roll_number, res, server.PUBLICATIONS)
                 html_result = generate_result_page(roll_number, res)
@@ -1128,12 +1150,9 @@ class PortalHTTPHandler(http.server.BaseHTTPRequestHandler):
                             QUERY_SESSIONS[session_id]["status"] = status
 
                 try:
-                    res = client.request_result(
+                    res = request_student_result(
                         roll_number=roll_number,
-                        host='127.0.0.1',
-                        port=TCP_SERVER_PORT,
                         timeout=15.0,
-                        verbose=False,
                         queue_callback=queue_callback
                     )
                 except Exception as e:
@@ -1237,7 +1256,7 @@ class PortalHTTPHandler(http.server.BaseHTTPRequestHandler):
             roll_number = normalize_roll(params.get("roll", ["24BAD025"])[0])
 
             res = resolve_result(roll_number, server.PUBLICATIONS, CACHED_RESULTS,
-                lambda: client.request_result(roll_number, port=TCP_SERVER_PORT, timeout=8, verbose=False),
+                lambda: request_student_result(roll_number),
                 force=params.get("force", ["0"])[0] == "1")
             status = 200 if res["success"] else 404 if res["status_message"] == "RECORD_NOT_FOUND" else 503
             self._json(res, status)

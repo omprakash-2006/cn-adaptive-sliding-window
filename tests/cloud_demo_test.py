@@ -94,16 +94,29 @@ class DemoIntegration(unittest.TestCase):
         self.assertEqual(state['metrics']['window_size'], 10)
         self.assertEqual(self.call('/api/cloud-demo/control',{'action':'run'},cookie)[0],200)
         self.assertEqual(self.call('/api/cloud-demo/control',{'action':'burst'},cookie)[0],409)
+        # A real student submission joins the same queue, outside the fixed demo roster.
+        for _ in range(100):
+            _, loading, _ = self.call('/api/cloud-demo/status', cookie=cookie)
+            if loading['metrics']['queue_length'] > 0:
+                break
+            time.sleep(.02)
+        self.assertGreater(loading['metrics']['queue_length'], 0)
+        code, started, _ = self.call('/api/query_start?roll=24BAD114')
+        self.assertEqual(code, 200)
+        portal_queued = False
         observed=False
         for _ in range(160):
             code,d,_=self.call('/api/cloud-demo/status',cookie=cookie)
             self.assertEqual(code,200)
             observed |= d['metrics']['queue_length']>0
+            portal_queued |= any(r['roll']=='24BAD114' and r['max_position']>0
+                                 for r in d['portal_requests'])
             if not d['running']:
                 break
             time.sleep(.2)
         self.assertFalse(d['running'])
         self.assertTrue(observed)
+        self.assertTrue(portal_queued)
         self.assertEqual(d['completed'],26)
         self.assertEqual(d['passed'],26)
         self.assertEqual(d['failed'],0)
@@ -124,9 +137,20 @@ class DemoIntegration(unittest.TestCase):
         rows = evidence['requests']
         self.assertEqual(len(rows), 26)
         self.assertEqual(len({r['request_id'] for r in rows}), 26)
+        code, polled, _ = self.call('/api/query_poll?session_id='+started['session_id'])
+        self.assertEqual(code, 200)
+        self.assertTrue(polled['done'] and polled['result']['success'])
+        manual = next(r for r in evidence['portal_requests'] if r['roll']=='24BAD114')
+        self.assertEqual(manual['request_id'], polled['result']['request_id'])
+        self.assertEqual(manual['role'], 'portal')
+        self.assertEqual(manual['status'], 'DELIVERED')
+        self.assertTrue(manual['crc_verified'] and manual['version_verified'])
+        self.assertTrue(manual['tcp_peer'] and manual['server_received_at'] and manual['server_admitted_at'])
+        self.assertGreater(manual['max_position'], 0)
+        self.assertEqual(evidence['portal_evidence']['tcp_received'], 1)
         self.assertEqual([r['roll'] for r in rows if r['role']=='background'], [f'24BAD{i:03d}' for i in range(1,26)])
         trace = [json.loads(line.split('CN_EVIDENCE ',1)[1]) for line in (Path(self.temp.name)/'server.log').read_text().splitlines() if line.startswith('CN_EVIDENCE ')]
-        for row in rows:
+        for row in rows + [manual]:
             self.assertTrue(row['success'] and row['done'])
             self.assertEqual(row['status'], 'DELIVERED')
             self.assertTrue(row['crc_verified'] and row['version_verified'])
@@ -135,7 +159,24 @@ class DemoIntegration(unittest.TestCase):
             self.assertGreaterEqual(row['server_wait_ms'], 0)
             events = [e for e in trace if e['request_id']==row['request_id']]
             self.assertEqual([e['event'] for e in events], ['TCP_RECEIVED','TCP_ADMITTED','TCP_CLOSED'])
-            self.assertTrue(all(e['run_id']==evidence['run_id'] and e['tcp_peer']==row['tcp_peer'] for e in events))
+            expected_run = None if row['role']=='portal' else evidence['run_id']
+            self.assertTrue(all(e['run_id']==expected_run and e['tcp_peer']==row['tcp_peer'] for e in events))
+        # Repeating the same roll creates a second row and a distinct actual TCP ID.
+        _, second, _ = self.call('/api/query_start?roll=24BAD114')
+        for _ in range(60):
+            _, completed, _ = self.call('/api/query_poll?session_id='+second['session_id'])
+            if completed['done']:
+                break
+            time.sleep(.05)
+        self.assertTrue(completed['result']['success'])
+        _, latest, _ = self.call('/api/cloud-demo/status', cookie=cookie)
+        manual_rows = [r for r in latest['portal_requests'] if r['roll']=='24BAD114']
+        self.assertEqual(len(manual_rows), 2)
+        self.assertEqual(len({r['request_id'] for r in manual_rows}), 2)
+        # Opening the cached marksheet doesn't invent another TCP request.
+        self.assertEqual(self.call('/result?roll=24BAD114')[0], 200)
+        _, latest, _ = self.call('/api/cloud-demo/status', cookie=cookie)
+        self.assertEqual(len(latest['portal_requests']), 2)
         self.assertEqual(self.call('/api/cloud-demo/logout',{},cookie)[0],200)
         # Existing student result service remains available after the demonstration.
         code,r,_=self.call('/api/query?roll=24BAD130&force=1')

@@ -13,4 +13,10 @@ Click **Download backend evidence (JSON)** to retain the run. On Render, open th
 
 The run counts a delivery as successful only when both the real server admission and the matching client's CRC/version-verified reply exist. Evidence access requires the existing presenter session. Only the latest four runs are retained in process memory; restarting the backend clears them, so download before a restart.
 
+## Show a separate student using the queue
+
+Keep the signed-in testing page open. In a second tab or another device, open the student portal and prepare roll **24BAD114** with a valid date entry. Start **Run queue demo**, then submit the student's Results form while the burst is active. A new row marked **24BAD114 · Student portal** appears automatically at the top of the same evidence table, with its own real TCP request ID, queue position, receive/admission timestamps and verified delivery. The generated demo remains 26 clients; the portal request count is shown separately.
+
+Submit the same roll again to see a new request ID and another row. Portal requests appear even when no generated demo is running. The latest 100 portal TCP requests are retained independently of demo runs and included in the protected evidence download. A cached marksheet view reuses the verified result and does not invent another TCP request. Failed TCP attempts remain failed in the table even if the student page can recover using a current published snapshot. Restarting the server clears this in-memory history.
+
 These are **25 simulated students making actual network requests**, not 25 humans or 25 separate physical devices. Student marks are synthetic. This bounded run demonstrates the admission window and queue behavior; it does not certify 1,000-student production capacity.

@@ -43,4 +43,10 @@ A request counts as delivered only when the matching TCP client verified its res
 
 Validation: 22 protocol/publication/concurrency tests, 2 real HTTP/TCP integration tests, and 15 proxy/UI-script tests passed (39 total). The integration test verified 26 distinct real TCP connections, all 25 background registrations, distinct request IDs, admission timestamps, matching CRC/version-verified replies, and receive/admit/close log entries matching each downloaded evidence row. Unauthenticated evidence download returned 401. Normal W=10 was restored after the run.
 
+## Manual portal request evidence — 28 October 2026
+
+The protected evidence table now includes actual student-portal TCP requests, independently of the fixed demo roster. Portal rows are keyed by request UUID, so repeated requests for one roll remain separate. The latest 100 portal requests are retained; demo delivery totals still count only generated clients. Cached result-page views do not fabricate new network activity.
+
+Validation: all 40 tests passed (22 protocol/publication/concurrency, 2 real HTTP/TCP integration, 16 proxy/UI script tests). The integration test submitted 24BAD114 while the generated burst was queued, verified the matching portal request ID and receive/admit/close log events, checked verified delivery, repeated the same roll with a different ID, and confirmed that opening its cached marksheet did not add a request. Browser verification on an isolated local backend also submitted 24BAD114 through the actual Results form: queue position #24 was observed, the marksheet arrived, and the presenter table showed its matching TCP identity and verified delivery. No real college records are connected.
+
 See VIVA_BACKEND_PROOF.md for demonstration steps and the precise distinction between synthetic students and real socket traffic.
